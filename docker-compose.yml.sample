@@ -11,7 +11,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/sonarr:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8989:8989"
     restart: unless-stopped
@@ -26,7 +26,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/radarr:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "7878:7878"
     restart: unless-stopped
@@ -41,7 +41,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/lidarr:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8686:8686"
     restart: unless-stopped
@@ -56,7 +56,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/readarr:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8787:8787"
     restart: unless-stopped
@@ -70,7 +70,7 @@ services:
       - UMASK=002
     volumes:
       - ${ROOT_DIR}/configs/mylar:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8090:8090"
     restart: unless-stopped
@@ -212,7 +212,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/jellyfin:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8096:8096"
     restart: unless-stopped
@@ -228,7 +228,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - ${ROOT_DIR}/configs/qbittorrent:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8080:8080"
       - "6881:6881"
@@ -245,7 +245,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/configs/sabnzbd:/config
-      - ${ROOT_DIR}/media:/data
+      - ${ROOT_DIR}/media:/media
     ports:
       - "8081:8080"
     restart: unless-stopped

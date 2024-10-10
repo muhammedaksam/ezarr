@@ -7,7 +7,8 @@ sudo docker compose down
 # Remove old users and group
 for user in sonarr radarr lidarr readarr mylar audiobookshelf bazarr prowlarr jackett plex overseerr jellyseerr qbittorrent sabnzbd; do
     if id "$user" &>/dev/null; then
-        sudo userdel "$user"
+        sudo userdel "$user" &>/dev/null
+    echo "Deleted user: $user"
     fi
 done
 
