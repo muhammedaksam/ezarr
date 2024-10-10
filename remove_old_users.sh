@@ -5,19 +5,12 @@
 sudo docker compose down
 
 # Remove old users and group
-sudo userdel sonarr
-sudo userdel radarr
-sudo userdel lidarr
-sudo userdel readarr
-sudo userdel mylar
-sudo userdel audiobookshelf
-sudo userdel bazarr
-sudo userdel prowlarr
-sudo userdel jackett
-sudo userdel plex
-sudo userdel overseerr
-sudo userdel jellyseerr
-sudo userdel qbittorrent
-sudo userdel sabnzbd
-sudo groupdel mediacenter
+for user in sonarr radarr lidarr readarr mylar audiobookshelf bazarr prowlarr jackett plex overseerr jellyseerr qbittorrent sabnzbd; do
+    if id "$user" &>/dev/null; then
+        sudo userdel "$user"
+    fi
+done
 
+if getent group mediacenter &>/dev/null; then
+    sudo groupdel mediacenter
+fi

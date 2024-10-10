@@ -16,7 +16,7 @@ class UserGroupSetup:
         os.system(
             f'sudo mkdir -p {self.root_dir}/configs/{service_name} -m 775' # -m 775 gives read/write access to the whole mediacenter group, change to 755 for only read
             f' ; sudo chown -R {service_name}:mediacenter {self.root_dir}/configs/{service_name}'
-            f' ; sudo chown $(id -u):mediacenter {self.root_dir}/config'
+            f' ; sudo chown $(id -u):mediacenter {self.root_dir}/configs'
         )
 
     def sonarr(self):
@@ -72,8 +72,8 @@ class UserGroupSetup:
     def audiobookshelf(self):
         os.system(
             '/bin/bash -c "sudo useradd audiobookshelf -u 13014'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/media/{audiobooks,podcasts,audiobookshelf-metadata} -m 775'
-            ' ; sudo chown -R audiobookshelf:mediacenter ' + self.root_dir + '/data/media/{audiobooks,podcasts,audiobookshelf-metadata}"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/{audiobooks,podcasts,audiobookshelf-metadata} -m 775'
+            ' ; sudo chown -R audiobookshelf:mediacenter ' + self.root_dir + '/media/{audiobooks,podcasts,audiobookshelf-metadata}"'
         )
         self.create_config_dir('audiobookshelf')
         os.system('sudo usermod -a -G mediacenter audiobookshelf')
