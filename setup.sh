@@ -50,29 +50,29 @@ sudo usermod -a -G mediacenter audiobookshelf
 
 # Make directories
 # ${ROOT_DIR:-.}/ means take the value from ROOT_DIR value, if failed or empty place it in the current folder
-sudo mkdir -pv ${ROOT_DIR:-.}/config/{sonarr,radarr,lidarr,readarr,mylar,prowlarr,qbittorrent,jackett,audiobookshelf,overseerr,plex,jellyfin,tautulli,sabnzbd,jellyseerr,bazarr}-config
-sudo mkdir -pv ${ROOT_DIR:-.}/data/{torrents,usenet,media}/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata}
+sudo mkdir -pv ${ROOT_DIR:-.}/configs/{sonarr,radarr,lidarr,readarr,mylar,prowlarr,qbittorrent,jackett,audiobookshelf,overseerr,plex,jellyfin,tautulli,sabnzbd,jellyseerr,bazarr}
+sudo mkdir -pv ${ROOT_DIR:-.}/media/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,downloads/{torrent,usenet}}
 
 # Set permissions
-sudo chmod -R 775 ${ROOT_DIR:-.}/data/
-sudo chmod -R 775 ${ROOT_DIR:-.}/config/
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/data/
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/
-sudo chown -R sonarr:mediacenter ${ROOT_DIR:-.}/config/sonarr-config
-sudo chown -R radarr:mediacenter ${ROOT_DIR:-.}/config/radarr-config
-sudo chown -R lidarr:mediacenter ${ROOT_DIR:-.}/config/lidarr-config
-sudo chown -R readarr:mediacenter ${ROOT_DIR:-.}/config/readarr-config
-sudo chown -R mylar:mediacenter ${ROOT_DIR:-.}/config/mylar-config
-sudo chown -R prowlarr:mediacenter ${ROOT_DIR:-.}/config/prowlarr-config
-sudo chown -R qbittorrent:mediacenter ${ROOT_DIR:-.}/config/qbittorrent-config
-sudo chown -R jackett:mediacenter ${ROOT_DIR:-.}/config/jackett-config
-sudo chown -R overseerr:mediacenter ${ROOT_DIR:-.}/config/overseerr-config
-sudo chown -R plex:mediacenter ${ROOT_DIR:-.}/config/plex-config
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/jellyfin-config
-sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/config/tautulli-config
-sudo chown -R sabnzbd:mediacenter ${ROOT_DIR:-.}/config/sabnzbd-config
-sudo chown -R jellyseerr:mediacenter ${ROOT_DIR:-.}/config/jellyseerr-config
-sudo chown -R bazarr:mediacenter ${ROOT_DIR:-.}/config/bazarr-config
-sudo chown -R audiobookshelf:mediacenter ${ROOT_DIR:-.}/config/audiobookshelf-config
+sudo chmod -R 775 ${ROOT_DIR:-.}/media/
+sudo chmod -R 775 ${ROOT_DIR:-.}/configs/
+sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/media/
+sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/configs/
+sudo chown -R sonarr:mediacenter ${ROOT_DIR:-.}/configs/sonarr
+sudo chown -R radarr:mediacenter ${ROOT_DIR:-.}/configs/radarr
+sudo chown -R lidarr:mediacenter ${ROOT_DIR:-.}/configs/lidarr
+sudo chown -R readarr:mediacenter ${ROOT_DIR:-.}/configs/readarr
+sudo chown -R mylar:mediacenter ${ROOT_DIR:-.}/configs/mylar
+sudo chown -R prowlarr:mediacenter ${ROOT_DIR:-.}/configs/prowlarr
+sudo chown -R qbittorrent:mediacenter ${ROOT_DIR:-.}/configs/qbittorrent
+sudo chown -R jackett:mediacenter ${ROOT_DIR:-.}/configs/jackett
+sudo chown -R overseerr:mediacenter ${ROOT_DIR:-.}/configs/overseerr
+sudo chown -R plex:mediacenter ${ROOT_DIR:-.}/configs/plex
+sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/configs/jellyfin
+sudo chown -R $UID:mediacenter ${ROOT_DIR:-.}/configs/tautulli
+sudo chown -R sabnzbd:mediacenter ${ROOT_DIR:-.}/configs/sabnzbd
+sudo chown -R jellyseerr:mediacenter ${ROOT_DIR:-.}/configs/jellyseerr
+sudo chown -R bazarr:mediacenter ${ROOT_DIR:-.}/configs/bazarr
+sudo chown -R audiobookshelf:mediacenter ${ROOT_DIR:-.}/configs/audiobookshelf
 
 echo "Done! It is recommended to reboot now."

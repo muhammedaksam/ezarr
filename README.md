@@ -1,10 +1,10 @@
-# EZARR
-[![Check running](https://github.com/Luctia/ezarr/actions/workflows/check_running.yml/badge.svg)](https://github.com/Luctia/ezarr/actions/workflows/check_running.yml)
+# WIP: EZARR - Servers@Home Wiki
+[![Check running](https://github.com/muhammedaksam/ezarr/actions/workflows/check_running.yml/badge.svg)](https://github.com/muhammedaksam/ezarr/actions/workflows/check_running.yml)
 
 Ezarr is a project built to make it EZ to deploy a Servarr mediacenter on an Ubuntu server. The
 badge above means that the shell script and docker-compose file in this repository at least *don't
 crash*. It doesn't necessarily mean it will run well on your system ;) 
-It's set up to follow the [TRaSH guidelines](https://trash-guides.info/Hardlinks/How-to-setup-for/Docker/) so it should at least perform optimally. It features:
+It's set up to follow the [Servers@Home Wiki guidelines](https://wiki.hydrology.cc/en/Folder-Structure) so it should at least perform optimally. It features:
 - [Sonarr](https://sonarr.tv/) is an application to manage TV shows. It is capable of keeping track
   of what you'd like to watch, at what quality, in which language and more, and can find a place to
   download this if connected to Prowlarr and qBittorrent. It can also reorganize the media you
@@ -63,7 +63,7 @@ If you want to choose your own IDs (or some of them are occupied) you have to go
 ### Manually
 If you're installing this for the first time simply follow these steps. 
 If you're coming from an older version or reinstalling with different IDs, run `remove_old_users.sh` to clean up old users and then follow these steps.
-1. To get started, clone the repository in a directory of your choosing. `git clone https://github.com/Luctia/ezarr.git`
+1. To get started, clone the repository in a directory of your choosing. `git clone https://github.com/muhammedaksam/ezarr.git`
 2. Copy `.env.sample` to a real `.env` by running `$ cp .env.sample .env`.
 3. Set the environment variables to your liking. Pay special attention `ROOT_DIR` as this is where everything is going to be stored in. 
    The path in this value needs to be **absolute**. If you leave it empty it's going to install in the directory the .env file is currently in.
@@ -96,14 +96,9 @@ take a look at [important notes](#important-notes) before you continue.
   advanced):
   - Media management:
     - Use hardlinks instead of Copy: `true`
-    - Root folder: `/data/media/` and then tv, movies or music depending on service
+    - Root folder: `/media/` and then tv, movies or music depending on service
   - qBittorrent ships with a default username `admin` and a one-time password that can be viewed by running `docker logs qbittorrent`.
   - Make sure to set a username and password for all servarr services and qBittorrent!
-- In qBittorrent, after connecting it to the -arr services, you can indicate it should move
-  torrents in certain categories to certain directories, like torrents in the `radarr` category
-  to `/data/torrents/movies`. You should do this. Also set the `Default Save Path` to
-  `/data/torrents`. Set "Run external program on torrent completion" to true and enter this in the
-  field: `chmod -R 775 "%F/"`.
 - You'll have to add indexers in Prowlarr by hand. Use Prowlarrs settings to connect it to the
   other -arr apps.
 

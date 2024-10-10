@@ -10,8 +10,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/sonarr-config:/config
-      - ${ROOT_DIR}/data:/data
+      - ${ROOT_DIR}/configs/sonarr:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8989:8989"
     restart: unless-stopped
@@ -25,8 +25,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/radarr-config:/config
-      - ${ROOT_DIR}/data:/data
+      - ${ROOT_DIR}/configs/radarr:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "7878:7878"
     restart: unless-stopped
@@ -40,8 +40,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/lidarr-config:/config
-      - ${ROOT_DIR}/data:/data
+      - ${ROOT_DIR}/configs/lidarr:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8686:8686"
     restart: unless-stopped
@@ -55,8 +55,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/readarr-config:/config
-      - ${ROOT_DIR}/data:/data
+      - ${ROOT_DIR}/configs/readarr:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8787:8787"
     restart: unless-stopped
@@ -69,8 +69,8 @@ services:
       - PGID=${MEDIACENTER_GID}
       - UMASK=002
     volumes:
-      - ${ROOT_DIR}/config/mylar-config:/config
-      - ${ROOT_DIR}/data:/data
+      - ${ROOT_DIR}/configs/mylar:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8090:8090"
     restart: unless-stopped
@@ -82,10 +82,10 @@ services:
       - user=${AUDIOBOOKSHELF_UID}:${MEDIACENTER_GID}
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/audiobookshelf:/config
-      - ${ROOT_DIR}/data/media/audiobooks:/audiobooks
-      - ${ROOT_DIR}/data/media/podcasts:/podcasts
-      - ${ROOT_DIR}/data/media/audiobookshelf-metadata:/metadata
+      - ${ROOT_DIR}/configs/audiobookshelf:/config
+      - ${ROOT_DIR}/media:/audiobooks
+      - ${ROOT_DIR}/media:/podcasts
+      - ${ROOT_DIR}/media:/metadata
     ports:
       - "13378:80"
     restart: unless-stopped
@@ -98,8 +98,8 @@ services:
       - PGID=${MEDIACENTER_GID}
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/bazarr-config:/config
-      - ${ROOT_DIR}/data/media:/media
+      - ${ROOT_DIR}/configs/bazarr:/config
+      - ${ROOT_DIR}/media:/media
     ports:
       - "6767:6767"
     restart: unless-stopped
@@ -113,7 +113,7 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/overseerr-config:/app/config
+      - ${ROOT_DIR}/configs/overseerr:/app/config
     ports:
       - "5055:5055"
     restart: unless-stopped
@@ -127,7 +127,7 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/jellyseerr-config:/app/config
+      - ${ROOT_DIR}/configs/jellyseerr:/app/config
     ports:
       - "5056:5055"
     restart: unless-stopped
@@ -141,7 +141,7 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/prowlarr-config:/config
+      - ${ROOT_DIR}/configs/prowlarr:/config
     ports:
       - "9696:9696"
     restart: unless-stopped
@@ -155,7 +155,7 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}    
     volumes:
-      - ${ROOT_DIR}/config/jackett-config:/config
+      - ${ROOT_DIR}/configs/jackett:/config
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -182,8 +182,8 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=${PLEX_CLAIM}
     volumes:
-      - ${ROOT_DIR}/config/plex-config:/config
-      - ${ROOT_DIR}/data/media:/media
+      - ${ROOT_DIR}/configs/plex:/config
+      - ${ROOT_DIR}/media:/media
     restart: unless-stopped
 
   tautulli:
@@ -197,7 +197,7 @@ services:
       - PGID=${MEDIACENTER_GID}
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/tautulli-config:/config
+      - ${ROOT_DIR}/configs/tautulli:/config
     ports:
       - "8181:8181"
     restart: unless-stopped
@@ -211,8 +211,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/jellyfin-config:/config
-      - ${ROOT_DIR}/data/media:/data
+      - ${ROOT_DIR}/configs/jellyfin:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8096:8096"
     restart: unless-stopped
@@ -227,8 +227,8 @@ services:
       - TZ=${TIMEZONE}
       - WEBUI_PORT=8080
     volumes:
-      - ${ROOT_DIR}/config/qbittorrent-config:/config
-      - ${ROOT_DIR}/data/torrents:/data/torrents
+      - ${ROOT_DIR}/configs/qbittorrent:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8080:8080"
       - "6881:6881"
@@ -244,8 +244,8 @@ services:
       - UMASK=002
       - TZ=${TIMEZONE}
     volumes:
-      - ${ROOT_DIR}/config/sabnzbd-config:/config
-      - ${ROOT_DIR}/data/usenet:/data/usenet
+      - ${ROOT_DIR}/configs/sabnzbd:/config
+      - ${ROOT_DIR}/media:/data
     ports:
       - "8081:8080"
     restart: unless-stopped

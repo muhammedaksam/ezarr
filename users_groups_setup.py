@@ -7,23 +7,23 @@ class UserGroupSetup:
         os.system('sudo groupadd mediacenter -g 13000')
         os.system('sudo usermod -a -G mediacenter $USER')
         os.system(
-            '/bin/bash -c "sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents} -m 775'
-            ' ; sudo chown $(id -u):mediacenter ' + self.root_dir + '/data'
-            ' ; sudo chown $(id -u):mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}"'
+            '/bin/bash -c "sudo mkdir -pv ' + self.root_dir + '/media/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,downloads/{torrent,usenet}} -m 775'
+            ' ; sudo chown $(id -u):mediacenter ' + self.root_dir + '/media'
+            ' ; sudo chown $(id -u):mediacenter ' + self.root_dir + '/media/{tv,movies,music,books,comics,audiobooks,podcasts,audiobookshelf-metadata,downloads/{torrent,usenet}}"'
         )
 
     def create_config_dir(self, service_name):
         os.system(
-            f'sudo mkdir -p {self.root_dir}/config/{service_name}-config -m 775' # -m 775 gives read/write access to the whole mediacenter group, change to 755 for only read
-            f' ; sudo chown -R {service_name}:mediacenter {self.root_dir}/config/{service_name}-config'
+            f'sudo mkdir -p {self.root_dir}/configs/{service_name} -m 775' # -m 775 gives read/write access to the whole mediacenter group, change to 755 for only read
+            f' ; sudo chown -R {service_name}:mediacenter {self.root_dir}/configs/{service_name}'
             f' ; sudo chown $(id -u):mediacenter {self.root_dir}/config'
         )
 
     def sonarr(self):
         os.system(
             '/bin/bash -c "sudo useradd sonarr -u 13001'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents}/tv -m 775'
-            ' ; sudo chown -R sonarr:mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}/tv"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/tv -m 775'
+            ' ; sudo chown -R sonarr:mediacenter ' + self.root_dir + '/media/tv"'
         )
         self.create_config_dir('sonarr')
         os.system('sudo usermod -a -G mediacenter sonarr')
@@ -31,8 +31,8 @@ class UserGroupSetup:
     def radarr(self):
         os.system(
             '/bin/bash -c "sudo useradd radarr -u 13002'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents}/movies -m 775'
-            ' ; sudo chown -R radarr:mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}/movies"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/movies -m 775'
+            ' ; sudo chown -R radarr:mediacenter ' + self.root_dir + '/media/movies"'
         )
         self.create_config_dir('radarr')
         os.system('sudo usermod -a -G mediacenter radarr')
@@ -45,8 +45,8 @@ class UserGroupSetup:
     def lidarr(self):
         os.system(
             '/bin/bash -c "sudo useradd lidarr -u 13003'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents}/music -m 775'
-            ' ; sudo chown -R lidarr:mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}/music"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/music -m 775'
+            ' ; sudo chown -R lidarr:mediacenter ' + self.root_dir + '/media/music"'
         )
         self.create_config_dir('lidarr')
         os.system('sudo usermod -a -G mediacenter lidarr')
@@ -54,8 +54,8 @@ class UserGroupSetup:
     def readarr(self):
         os.system(
             '/bin/bash -c "sudo useradd readarr -u 13004'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents}/books -m 775'
-            ' ; sudo chown -R readarr:mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}/books"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/books -m 775'
+            ' ; sudo chown -R readarr:mediacenter ' + self.root_dir + '/media/books"'
         )
         self.create_config_dir('readarr')
         os.system('sudo usermod -a -G mediacenter readarr')
@@ -63,8 +63,8 @@ class UserGroupSetup:
     def mylar3(self):
         os.system(
             '/bin/bash -c "sudo useradd mylar -u 13005'
-            ' ; sudo mkdir -pv ' + self.root_dir + '/data/{media,usenet,torrents}/comics -m 775'
-            ' ; sudo chown -R mylar:mediacenter ' + self.root_dir + '/data/{media,usenet,torrents}/comics"'
+            ' ; sudo mkdir -pv ' + self.root_dir + '/media/comics -m 775'
+            ' ; sudo chown -R mylar:mediacenter ' + self.root_dir + '/media/comics"'
         )
         self.create_config_dir('mylar')
         os.system('sudo usermod -a -G mediacenter mylar')
