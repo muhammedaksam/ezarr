@@ -10,13 +10,6 @@ class ContainerConfig:
         self.timezone = timezone
         self.config_dir = root_dir + '/configs'
         self.plex_claim = plex_claim
-        self.movie_dir = root_dir + '/media'
-        self.tv_dir = root_dir + '/media'
-        self.music_dir = root_dir + '/media'
-        self.book_dir = root_dir + '/media'
-        self.comic_dir = root_dir + '/media'
-        self.torrent_dir = root_dir + '/media'
-        self.usenet_dir = root_dir + '/media'
         self.UID = os.popen('id -u').read().rstrip('\n')
 
     def plex(self):
@@ -226,7 +219,7 @@ class ContainerConfig:
             '      - WEBUI_PORT=8080\n'
             '    volumes:\n'
             '      - ' + self.config_dir + '/qbittorrent:/config\n'
-            '      - ' + self.torrent_dir + '/media:/media\n'
+            '      - ' + self.root_dir + '/media:/media\n'
             '    ports:\n'
             '      - "8080:8080"\n'
             '      - "6881:6881"\n'
@@ -280,7 +273,7 @@ class ContainerConfig:
             '      - TZ=' + self.timezone + '\n'
             '    volumes:\n'
             '      - ' + self.config_dir + '/sabnzbd:/config\n'
-            '      - ' + self.usenet_dir + ':/media/media\n'
+            '      - ' + self.root_dir + ':/media/media\n'
             '    ports:\n'
             '      - "8081:8080"\n'
             '    restart: unless-stopped\n\n'

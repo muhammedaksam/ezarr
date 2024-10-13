@@ -8,10 +8,11 @@ sudo docker compose down
 for user in sonarr radarr lidarr readarr mylar audiobookshelf bazarr prowlarr jackett plex overseerr jellyseerr qbittorrent sabnzbd; do
     if id "$user" &>/dev/null; then
         sudo userdel "$user" &>/dev/null
-    echo "Deleted user: $user"
+        echo "Deleted user: $user"
     fi
 done
 
 if getent group mediacenter &>/dev/null; then
     sudo groupdel mediacenter
+    echo "Deleted group: mediacenter"
 fi
