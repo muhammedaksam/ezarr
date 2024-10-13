@@ -257,7 +257,7 @@ class ContainerConfig:
             '    volumes:\n'
             '      - ' + self.config_dir + '/jellyseerr:/app/config\n'
             '    ports:\n'
-            '      - "5056:5055"\n'
+            '      - "5055:5055"\n'
             '    restart: unless-stopped\n\n'
         )
 

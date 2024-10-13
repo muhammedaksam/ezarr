@@ -129,7 +129,7 @@ services:
     volumes:
       - ${ROOT_DIR}/configs/jellyseerr:/app/config
     ports:
-      - "5056:5055"
+      - "5055:5055"
     restart: unless-stopped
 
   prowlarr:
